@@ -4,7 +4,7 @@ import DropDown from "./DropDown";
 
 const StationMapContainer = styled.div`
   background-color: white;
-  height: 50.75rem;
+  height: 45rem;
   color: black;
   border: 1px solid red;
   display: flex;
