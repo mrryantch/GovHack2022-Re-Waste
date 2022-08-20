@@ -50,7 +50,7 @@ const Footer = () => {
             <CustomRow>
                 <HeaderSpan style={{ paddingBottom: '4px' }}>SPONSORED BY</HeaderSpan>
                 <Column style={{ alignItems: 'center' }}>
-                    <img src="/COA_LOGO.png" width='120px' style={{ marginRight: '2rem' }}></img>
+                    <img src="/COA_LOGO.png" width='120px' style={{ marginRight: '2rem' }} alt='COA_LOGO'></img>
                     <ContentSpan>
                         re:waste
                     </ContentSpan>

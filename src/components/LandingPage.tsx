@@ -1,16 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LinkButton, PrimaryButton } from './common/buttons';
 import { GreenSpan, HeaderText } from './common/text';
-import { useNavigate } from "react-router-dom";
 import StationMap from './StationMap/StationMap';
 import Footer from './common/Footer';
-
-const NavContainer = styled.div`
-display: flex;
-justify-content:space-between;
-padding: 1rem 4rem;
-`
+import { Header } from './common/Header';
 
 const InfoContainer = styled.div`
 padding: 3rem 8rem;
@@ -26,29 +19,6 @@ line-height: 1.5rem;
 padding-top: 1rem;
 padding-bottom: 5rem;
 `
-const Header = () => {
-    const navigate = useNavigate();
- 
-    const onDashboardClick = () => {
-        if (window.sessionStorage.getItem("user")) {
-            navigate('/dashboard')
-        } else {
-            navigate('/login')
-        }
-    }
-
-    return <NavContainer>
-        <HeaderText>re:<GreenSpan>waste</GreenSpan></HeaderText>
-        <div style={{ paddingTop: '1.5rem' }}>
-            <LinkButton href="#">Link1</LinkButton>
-            <LinkButton href="#">Link2</LinkButton>
-            <LinkButton href="#">Link3</LinkButton>
-            <LinkButton href="#">Link4</LinkButton>
-            <PrimaryButton onClick={onDashboardClick}>Dashboard</PrimaryButton>
-        </div>
-    </NavContainer>
-}
-
 
 const LandingPage = () => {
     return <>

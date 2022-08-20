@@ -78,7 +78,7 @@ const LogIn = () => {
         <Footer>
             <Row>
                 <span style={{ paddingBottom: '4px' }}>SPONSORED BY</span>
-                <img src="/COA_LOGO.png" width='120px'></img>
+                <img src="/COA_LOGO.png" width='120px' alt='COA_LOGO'></img>
             </Row>
 
             <span>Privacy Policy • Terms &#38; Conditions</span>
