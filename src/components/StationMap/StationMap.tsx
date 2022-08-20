@@ -1,16 +1,20 @@
 import styled from "styled-components";
-import { useState } from "react";
 import DropDown from "./DropDown";
+import Map from "./Map";
 
 const StationMapContainer = styled.div`
   background-color: white;
   height: 45rem;
   color: black;
-  border: 1px solid red;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding-left: 10.125rem;
   padding-right: 10.125rem;
+`;
+
+const InnerContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 const Box1 = styled.div`
   width: 100%;
@@ -18,7 +22,6 @@ const Box1 = styled.div`
 
 const Box2 = styled.div`
   width: 100%;
-  padding-top: 9.5rem;
   padding-bottom: 6.938rem;
 `;
 
@@ -28,6 +31,7 @@ const Title = styled.p`
   line-height: 3.438rem;
   display: flex;
   flex-direction: row;
+  margin-bottom: 1rem;
 `;
 const TitleGreen = styled.p`
   font-weight: 700;
@@ -37,11 +41,11 @@ const TitleGreen = styled.p`
 `;
 
 const Paragraph = styled.p`
-  margin-top: 7.375rem;
   width: 36.688rem;
   height: 13.75rem;
   font-size: 2rem;
   font-weight: 400;
+  margin-top: 4rem;
 `;
 
 const SubParagraph = styled.p`
@@ -51,32 +55,35 @@ const SubParagraph = styled.p`
 `;
 
 const MapContainer = styled.div`
-  border: 1px solid red;
   height: 29.938rem;
+  margin-top: 2rem;
 `;
 
 const StationMap = () => {
   return (
     <StationMapContainer>
-      <Box1>
-        <Title>
-          re:&nbsp;<TitleGreen>yourwaste&nbsp;</TitleGreen> in&nbsp;{" "}
-          <DropDown />
-        </Title>
+      <Title>
+        re:&nbsp;<TitleGreen>yourwaste&nbsp;</TitleGreen> in&nbsp; <DropDown />
+      </Title>
 
-        <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus est
-          adipiscing cras habitant. Metus nulla id eget nunc. Aliquet nunc
-          neque, egestas consectetur maecenas.
-        </Paragraph>
+      <InnerContainer>
+        <Box1>
+          <Paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus
+            est adipiscing cras habitant. Metus nulla id eget nunc. Aliquet nunc
+            neque, egestas consectetur maecenas.
+          </Paragraph>
 
-        <SubParagraph>Hours</SubParagraph>
-        <SubParagraph>Location</SubParagraph>
-        <SubParagraph>Service</SubParagraph>
-      </Box1>
-      <Box2>
-        <MapContainer>test</MapContainer>
-      </Box2>
+          <SubParagraph>Hours</SubParagraph>
+          <SubParagraph>Location</SubParagraph>
+          <SubParagraph>Service</SubParagraph>
+        </Box1>
+        <Box2>
+          <MapContainer>
+            <Map />
+          </MapContainer>
+        </Box2>
+      </InnerContainer>
     </StationMapContainer>
   );
 };
