@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useState } from "react";
+import DropDown from "./DropDown";
 
 const StationMapContainer = styled.div`
   background-color: white;
@@ -15,13 +17,10 @@ const Box1 = styled.div`
 `;
 
 const Box2 = styled.div`
-  border: 1px solid lime;
   width: 100%;
-  padding-top: 13.875rem;
+  padding-top: 9.5rem;
   padding-bottom: 6.938rem;
 `;
-
-const MapContainer = styled.div``;
 
 const Title = styled.p`
   font-weight: 700;
@@ -51,12 +50,18 @@ const SubParagraph = styled.p`
   font-weight: 700;
 `;
 
+const MapContainer = styled.div`
+  border: 1px solid red;
+  height: 29.938rem;
+`;
+
 const StationMap = () => {
   return (
     <StationMapContainer>
       <Box1>
         <Title>
-          re:&nbsp;<TitleGreen>yourwaste&nbsp;</TitleGreen> in&nbsp;
+          re:&nbsp;<TitleGreen>yourwaste&nbsp;</TitleGreen> in&nbsp;{" "}
+          <DropDown />
         </Title>
 
         <Paragraph>
@@ -69,7 +74,9 @@ const StationMap = () => {
         <SubParagraph>Location</SubParagraph>
         <SubParagraph>Service</SubParagraph>
       </Box1>
-      <Box2>test</Box2>
+      <Box2>
+        <MapContainer>test</MapContainer>
+      </Box2>
     </StationMapContainer>
   );
 };

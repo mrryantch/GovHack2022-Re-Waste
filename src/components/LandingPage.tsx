@@ -20,7 +20,6 @@ const LandingPage = () => {
     <>
       <Header />
       <h1>This is a landing page</h1>
-      <StationMap />
     </>
   );
 };
