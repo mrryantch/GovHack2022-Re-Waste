@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import Chevron from "../../assets/chevron.svg";
 const DropDownButton = styled.select`
-  width: 317px;
+  width: auto;
   height: 78px;
   background: none;
   border-radius: 6px;
@@ -13,16 +13,20 @@ const DropDownButton = styled.select`
   flex-direction: row;
   align-items: center;
   font-weight: 700;
-  font-size: 40px;
+  font-size: 30px;
   padding-left: 20px;
 `;
 
 function DropDown() {
   return (
     <DropDownButton>
-      <option>Unley</option>
-      <option>Test1</option>
-      <option>Test2</option>
+      <option>Adelaide West End Precinct</option>
+      <option>North Adelaide Precinct</option>
+      <option>East End Precinct</option>
+      <option>Grote Business Precinct</option>
+      <option>Hutt Street Traders Precinct</option>
+      <option>Gouger Street Traders Traders Precinct</option>
+      <option>City South Precinct</option>
     </DropDownButton>
   );
 }
