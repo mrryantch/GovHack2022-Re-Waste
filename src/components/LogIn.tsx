@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import { BLACK, WHITE } from "../constants/styles"
 import { PrimaryButton } from "./common/buttons"
+import { Row } from "./common/layout"
 
 
 const LogInContainer = styled.div`
@@ -57,11 +58,6 @@ const Footer = styled.div`
     font-size: 12px;
 `
 
-const LogoContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-`
-
 const LogIn = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState('');
@@ -80,10 +76,10 @@ const LogIn = () => {
             <LogInPrimaryButton onClick={onLogInClicked}>Log in</LogInPrimaryButton>
         </LogInFormContainer>
         <Footer>
-            <LogoContainer>
+            <Row>
                 <span style={{ paddingBottom: '4px' }}>SPONSORED BY</span>
                 <img src="/COA_LOGO.png" width='120px'></img>
-            </LogoContainer>
+            </Row>
 
             <span>Privacy Policy • Terms &#38; Conditions</span>
             <span>All rights reserved © re:waste 2022</span>

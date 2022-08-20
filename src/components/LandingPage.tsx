@@ -4,6 +4,7 @@ import { LinkButton, PrimaryButton } from './common/buttons';
 import { GreenSpan, HeaderText } from './common/text';
 import { useNavigate } from "react-router-dom";
 import StationMap from './StationMap/StationMap';
+import Footer from './common/Footer';
 
 const NavContainer = styled.div`
 display: flex;
@@ -43,7 +44,7 @@ const Header = () => {
             <LinkButton href="#">Link2</LinkButton>
             <LinkButton href="#">Link3</LinkButton>
             <LinkButton href="#">Link4</LinkButton>
-            <PrimaryButton onClick={onDashboardClick}>Find a recycling plant</PrimaryButton>
+            <PrimaryButton onClick={onDashboardClick}>Dashboard</PrimaryButton>
         </div>
     </NavContainer>
 }
@@ -57,12 +58,13 @@ const LandingPage = () => {
             <HeaderText>re:<GreenSpan>yourwaste</GreenSpan></HeaderText>
             <ParagraphText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus est adipiscing cras habitant. Metus nulla id eget nunc. Aliquet nunc neque, egestas consectetur maecenas. </ParagraphText>
             <ImagesContainer>
-            <img src='/noah-buscher-x8ZStukS2PM-unsplash.jpg' alt='landingImg' height='400px' width='450px'></img>
-            <img src='/noah-buscher-x8ZStukS2PM-unsplash.jpg' alt='landingImg' height='400px' width='450px'></img>
-            <img src='/noah-buscher-x8ZStukS2PM-unsplash.jpg' alt='landingImg' height='400px' width='450px'></img>
+            <img src='/noah-buscher-x8ZStukS2PM-unsplash.jpg' alt='landingImg' height='400px' width='500px'></img>
+            <img src='/noah-buscher-x8ZStukS2PM-unsplash.jpg' alt='landingImg' height='400px' width='500px'></img>
+            <img src='/noah-buscher-x8ZStukS2PM-unsplash.jpg' alt='landingImg' height='400px' width='500px'></img>
             </ImagesContainer>
         </InfoContainer>
         <StationMap />
+        <Footer />
     </>
 };
 
