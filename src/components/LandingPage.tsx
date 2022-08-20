@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { LinkButton, PrimaryButton } from './common/buttons';
 import { GreenSpan, HeaderText } from './common/text';
 import { useNavigate } from "react-router-dom";
+import StationMap from './StationMap/StationMap';
 
 const NavContainer = styled.div`
 display: flex;
@@ -61,7 +62,8 @@ const LandingPage = () => {
             <img src='/noah-buscher-x8ZStukS2PM-unsplash.jpg' alt='landingImg' height='400px' width='450px'></img>
             </ImagesContainer>
         </InfoContainer>
+        <StationMap />
     </>
-}
+};
 
-export default LandingPage
+export default LandingPage;
