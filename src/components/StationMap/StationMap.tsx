@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { useState } from "react";
 import DropDown from "./DropDown";
+import Map from "./Map";
 
 const StationMapContainer = styled.div`
   background-color: white;
   height: 45rem;
   color: black;
-  border: 1px solid red;
   display: flex;
   flex-direction: row;
   padding-left: 10.125rem;
@@ -51,7 +50,6 @@ const SubParagraph = styled.p`
 `;
 
 const MapContainer = styled.div`
-  border: 1px solid red;
   height: 29.938rem;
 `;
 
@@ -75,7 +73,9 @@ const StationMap = () => {
         <SubParagraph>Service</SubParagraph>
       </Box1>
       <Box2>
-        <MapContainer>test</MapContainer>
+        <MapContainer>
+          <Map />
+        </MapContainer>
       </Box2>
     </StationMapContainer>
   );
