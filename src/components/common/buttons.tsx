@@ -30,4 +30,9 @@ text-decoration: none;
 &:hover {
     color:${GREEN}
 }
+
+@media (max-width: 768px) {
+    line-height: 10px;
+    padding: 1rem;
+}
 `
