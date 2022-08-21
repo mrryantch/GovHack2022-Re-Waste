@@ -6,4 +6,7 @@ color: ${GREEN}
 `
 export const HeaderText = styled.h1`
 display: inline;
+@media (max-width: 768px) {
+    margin: 0;
+  }
 `
