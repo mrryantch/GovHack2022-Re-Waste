@@ -71,6 +71,9 @@ const LogIn = () => {
         <SpanContainer>
           Please enter your email and password to proceed
         </SpanContainer>
+        <SpanContainer style={{ width: "300px" }}>
+          (For demo purpose any email and password will work)
+        </SpanContainer>
         <InputBox
           placeholder="enter your email"
           value={email}
