@@ -4,8 +4,8 @@ import { RewasteHub } from "../../data/RewasteHub";
 
 const Map = () => {
   const [map, setMap] = useState<google.maps.Map>();
-  const adelaideLonLat = [-34.928664106389625, 138.59996004847085];
-  const myLatLng = { lat: -34.928664106389625, lng: 138.59996004847085 };
+  const [adelaideLonLat] = useState([-34.928664106389625, 138.59996004847085]);
+
   useEffect(() => {
     if (process.env.REACT_APP_GOOGLE_MAP_API_KEYS) {
       const mapOptions = {
@@ -36,10 +36,11 @@ const Map = () => {
           console.log("map rendering error");
         });
     }
-  }, []);
+  }, [adelaideLonLat]);
 
   useEffect(() => {
     if (map) {
+      // eslint-disable-next-line array-callback-return
       RewasteHub.map((hubs) => {
         const marker = new google.maps.Marker({
           position: { lat: parseFloat(hubs.lat), lng: parseFloat(hubs.lon) },
