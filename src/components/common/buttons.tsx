@@ -5,8 +5,9 @@ import { GREEN, WHITE } from '../../constants/styles'
 export const PrimaryButton = styled.button`
 padding: 0.8rem 2rem;
 left: 1135px;
-top: 2rem;
 border-radius: 5px;
+height: 2rem;
+line-height: 0.8rem;
 background: ${GREEN};
 color: ${WHITE};
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

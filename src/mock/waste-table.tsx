@@ -41,6 +41,11 @@ export const wasteDataSample = [
         date: getLastNumMonthDate(2)
     },
     {
+        type: BinType.RECYELE,
+        amount: 7.6,
+        date: getLastNumMonthDate(6)
+    },
+    {
         type: BinType.ORGANICS,
         amount: 2.0,
         date: now
@@ -54,6 +59,11 @@ export const wasteDataSample = [
         type: BinType.ORGANICS,
         amount: 1.7,
         date: getLastNumMonthDate(2)
+    },
+    {
+        type: BinType.ORGANICS,
+        amount: 1.7,
+        date: getLastNumMonthDate(5)
     },
     {
         type: BinType.LANDFILL,
