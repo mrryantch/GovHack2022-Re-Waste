@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import DropDown from "./DropDown";
 import Map from "./Map";
+import { useState } from "react";
 
 const StationMapContainer = styled.div`
   height: 45rem;
@@ -60,19 +61,16 @@ const MapContainer = styled.div`
 `;
 
 const StationMap = () => {
+  const [title, setTitle] = useState("Click on Map or select a Precinct");
   return (
     <StationMapContainer>
       <Title>
-        re:&nbsp;<TitleGreen>yourwaste&nbsp;</TitleGreen> in&nbsp; <DropDown />
+        re:<TitleGreen>yourwaste&nbsp;</TitleGreen> in&nbsp; <DropDown />
       </Title>
 
       <InnerContainer>
         <Box1>
-          <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus
-            est adipiscing cras habitant. Metus nulla id eget nunc. Aliquet nunc
-            neque, egestas consectetur maecenas.
-          </Paragraph>
+          <Paragraph>{title}</Paragraph>
 
           <SubParagraph>Hours</SubParagraph>
           <SubParagraph>Location</SubParagraph>
@@ -80,7 +78,7 @@ const StationMap = () => {
         </Box1>
         <Box2>
           <MapContainer>
-            <Map />
+            <Map setTitle={setTitle} />
           </MapContainer>
         </Box2>
       </InnerContainer>
