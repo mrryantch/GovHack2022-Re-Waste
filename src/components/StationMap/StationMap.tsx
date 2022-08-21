@@ -5,7 +5,7 @@ import { useState } from "react";
 import { GREEN } from "../../constants/styles";
 
 const StationMapContainer = styled.div`
-  height: 45rem;
+  height: auto;
   color: black;
   display: flex;
   flex-direction: column;
@@ -38,6 +38,10 @@ const Box1 = styled.div`
 const Box2 = styled.div`
   width: 100%;
   padding-bottom: 6.938rem;
+  @media (max-width: 768px) {
+    padding-bottom: 0rem;
+    margin-bottom: 2.5rem;
+  }
 `;
 
 const Title = styled.p`
