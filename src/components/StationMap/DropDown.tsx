@@ -25,8 +25,9 @@ function DropDown() {
       <option>East End Precinct</option>
       <option>Grote Business Precinct</option>
       <option>Hutt Street Traders Precinct</option>
-      <option>Gouger Street Traders Traders Precinct</option>
+      <option>Gouger Street Traders Precinct</option>
       <option>City South Precinct</option>
+      <option>Others</option>
     </DropDownButton>
   );
 }

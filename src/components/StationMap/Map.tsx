@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
+import { RewasteHub } from "../../data/RewasteHub";
 
 const Map = () => {
   const [map, setMap] = useState<google.maps.Map>();
+  const adelaideLonLat = [-34.928664106389625, 138.59996004847085];
+  const myLatLng = { lat: -34.928664106389625, lng: 138.59996004847085 };
   useEffect(() => {
     if (process.env.REACT_APP_GOOGLE_MAP_API_KEYS) {
       const mapOptions = {
         center: {
-          lat: -34.92123,
-          lng: 138.599503,
+          lat: adelaideLonLat[0],
+          lng: adelaideLonLat[1],
         },
         zoom: 14,
       };
@@ -34,6 +37,19 @@ const Map = () => {
         });
     }
   }, []);
+
+  useEffect(() => {
+    if (map) {
+      RewasteHub.map((hubs) => {
+        const marker = new google.maps.Marker({
+          position: { lat: parseFloat(hubs.lat), lng: parseFloat(hubs.lon) },
+          map,
+        });
+
+        marker.setMap(map);
+      });
+    }
+  }, [map]);
 
   return (
     <div
