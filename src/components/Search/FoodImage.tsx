@@ -6,6 +6,9 @@ const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 60px;
+  @media (max-width: 768px) {
+    margin-right: 0px;
+  }
 `;
 
 const ImageText = styled.p`
