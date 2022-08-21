@@ -62,7 +62,10 @@ interface HeaderProps {
 
 export const Header = (props: HeaderProps) => {
     const navigate = useNavigate();
-    const { language, setLanguage } = props;
+    const {
+        language = LanguageType.English, 
+        setLanguage
+    } = props;
 
     const onDashboardClick = () => {
         if (window.sessionStorage.getItem("user")) {
@@ -82,7 +85,7 @@ export const Header = (props: HeaderProps) => {
                 <LinkButton href="/">Home Page</LinkButton>
                 <PrimaryButton onClick={onDashboardClick} style={{ maxHeight: '2rem' }}>Dashboard</PrimaryButton>
                 <MultiLingualSelect>
-                    <LanguageOption selected={language === LanguageType.English} onClick={() => setLanguage && setLanguage(LanguageType.English)}>English</LanguageOption> | 
+                    <LanguageOption selected={language === LanguageType.English} onClick={() => setLanguage && setLanguage(LanguageType.English)}>English</LanguageOption> |
                     <LanguageOption selected={language === LanguageType.Chinese} onClick={() => setLanguage && setLanguage(LanguageType.Chinese)}>简体中文</LanguageOption>
                 </MultiLingualSelect>
             </ButtonsContainer>
