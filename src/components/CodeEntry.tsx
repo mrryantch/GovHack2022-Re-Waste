@@ -103,7 +103,7 @@ const CodeEntry = () => {
     }
     return (
     <>
-        <Header setLanguage={setLanguage}/>
+        <Header language={language} setLanguage={setLanguage}/>
         <CodeEntryContainer>
             <EntryFormContainer>
                 <h2>re:yourwaste</h2>
