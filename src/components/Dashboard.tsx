@@ -147,7 +147,7 @@ const Dashboard = () => {
         <ProfileContainer>
             <HeaderText style={{ color: GREEN }}>Profile</HeaderText>
             <ItemsContainer>
-                <ListItem label='Business Name' value='PwC' />
+                <ListItem label='Business Name' value='Company A' />
                 <ListItem label='ABN' value='00 000 000 000' />
                 <ListItem label='Business Address' value='Level 6, 60 Rundle Street, Adelaide 5000' />
             </ItemsContainer>
@@ -177,7 +177,7 @@ const Dashboard = () => {
                 </SummaryDataContainer>
                 <SummaryDataContainer>
                     <EqualIcon>&#8776;</EqualIcon>
-                    <PointBalance>{getBillPoint()}</PointBalance>
+                    <PointBalance>${getBillPoint()}</PointBalance>
                     <div>(the equal amount of electribity bill that you can redeem)</div>
                 </SummaryDataContainer>
             </RightContainer>
