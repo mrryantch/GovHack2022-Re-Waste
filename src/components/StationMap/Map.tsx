@@ -11,7 +11,6 @@ const Map = ({ markers, dropDownValue, setTitle }: mapInterface) => {
   const [map, setMap] = useState<google.maps.Map>();
   const [adelaideLonLat] = useState([-34.928664106389625, 138.59996004847085]);
 
-  console.log(markers);
   useEffect(() => {
     if (process.env.REACT_APP_GOOGLE_MAP_API_KEYS) {
       const mapOptions = {
