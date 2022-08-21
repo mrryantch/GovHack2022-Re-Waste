@@ -12,6 +12,10 @@ const ProfileContainer = styled.div`
     flex-direction: column;
     padding: 1rem 4rem;
     border-top: 3px solid ${GREEN};
+
+    @media (max-width: 768px) {
+        padding: 1.5rem;
+      }
  `
 
 const ItemsContainer = styled.div`
