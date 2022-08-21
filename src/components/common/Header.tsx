@@ -27,11 +27,12 @@ export const Header = () => {
         re:<GreenSpan>waste</GreenSpan>
       </HeaderText>
       <div style={{ paddingTop: "1.5rem" }}>
-        <LinkButton href="#">reduce</LinkButton>
-        <LinkButton href="#">reuse</LinkButton>
-        <LinkButton href="#">recycle</LinkButton>
-        <LinkButton href="#">reimagine</LinkButton>
+        <LinkButton href="/code-entry">Dispose Your Waste</LinkButton>
+        <LinkButton href="/">Home Page</LinkButton>
         <PrimaryButton onClick={onDashboardClick}>Dashboard</PrimaryButton>
+        {/* <div>
+            <span>English</span> | <span>Chinese</span>
+        </div> */}
       </div>
     </NavContainer>
   );

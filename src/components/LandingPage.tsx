@@ -15,6 +15,7 @@ const Container = styled.div`
   flex-direction: column;
   overflow-x: hidden;
 `;
+
 const InfoContainer = styled.div`
   padding: 3rem 7rem;
 `;
@@ -40,6 +41,7 @@ const LandingPage = () => {
         alt="landingImg"
         height="500px"
         width="100%"
+        style={{objectFit: 'cover'}}
       ></img>
       <InfoContainer>
         <HeaderText>
@@ -48,19 +50,19 @@ const LandingPage = () => {
         <ParagraphText>Recent Activities</ParagraphText>
         <ImagesContainer>
           <img
-            src="/noah-buscher-x8ZStukS2PM-unsplash.jpg"
-            alt="landingImg"
+            src="/Images/recycle.jpg"
+            alt="landingImg1"
             height="400px"
             width="500px"
           ></img>
           <img
-            src="/noah-buscher-x8ZStukS2PM-unsplash.jpg"
-            alt="landingImg"
+            src="/Images/farming.jpg"
+            alt="landingImg2"
             height="400px"
             width="500px"
           ></img>
           <img
-            src="/noah-buscher-x8ZStukS2PM-unsplash.jpg"
+            src="/Images/event.jpg"
             alt="landingImg"
             height="400px"
             width="500px"
