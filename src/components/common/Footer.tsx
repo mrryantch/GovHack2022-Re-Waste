@@ -57,6 +57,7 @@ const Footer = () => {
               src="/COA_LOGO.png"
               width="120px"
               style={{ marginRight: "2rem" }}
+              alt="COA_logo"
             ></img>
             <ContentSpan>re:waste</ContentSpan>
           </Column>
