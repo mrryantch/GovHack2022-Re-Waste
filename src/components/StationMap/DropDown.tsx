@@ -14,6 +14,12 @@ const DropDownButton = styled.select`
   font-weight: 700;
   font-size: 30px;
   padding-left: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    height: 32px;
+    width: 80%;
+  }
 `;
 
 interface DropDownInterface {

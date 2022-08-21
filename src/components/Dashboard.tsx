@@ -23,6 +23,10 @@ const ItemsContainer = styled.div`
 const SummaryContainer = styled.div`
     display: flex;
     margin-top: 0.5rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
  `
 
 
@@ -52,6 +56,13 @@ const Menu = styled.ul`
     display:table-cell;
     vertical-align: middle;
     padding: 5rem 0 0 0;
+
+
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 0;
+        height: auto;
+    }
 `
 
 interface MenuItemProps {
@@ -75,6 +86,11 @@ const RightContainer = styled.div`
     width: 75%;
     padding: 2rem 0;
     display: flex;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        width: 100%;
+    }
 `
 
 interface SummaryDataContainerProps {
@@ -90,6 +106,12 @@ const SummaryDataContainer = styled.div<SummaryDataContainerProps>`
     align-items: center;
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        border-bottom: ${props => props.border ? `1px solid ${BLACK}` : "none"};
+        border-right: none;
+    }
 `
 
 const Title = styled.p`

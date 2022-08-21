@@ -18,16 +18,37 @@ const Container = styled.div`
 
 const InfoContainer = styled.div`
   padding: 3rem 7rem;
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+    }
 `;
+
 const ImagesContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  img {
+    height: 400px;
+    width: 500px;
+
+    @media (max-width: 768px) {
+        height: 200px;
+        width: 300px;
+        margin-bottom: 1rem;
+     }
+  }
 `;
 
 const ParagraphText = styled.div`
   width: 100%;
   line-height: 1.5rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 `;
@@ -52,20 +73,14 @@ const LandingPage = () => {
           <img
             src="/Images/recycle.jpg"
             alt="landingImg1"
-            height="400px"
-            width="500px"
           ></img>
           <img
             src="/Images/farming.jpg"
             alt="landingImg2"
-            height="400px"
-            width="500px"
           ></img>
           <img
             src="/Images/event.jpg"
-            alt="landingImg"
-            height="400px"
-            width="500px"
+            alt="landingImg3"
           ></img>
         </ImagesContainer>
       </InfoContainer>
