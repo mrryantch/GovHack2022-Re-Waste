@@ -11,6 +11,12 @@ const FooterContainer = styled.div`
   color: ${WHITE};
   padding: 2rem 4rem;
   display: flex;
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+    flex-direction: column;
+    height: 550px;
+}
 `;
 
 const HeaderSpan = styled.span`

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import styled from "styled-components"
 import { BLACK, GREEN, WHITE } from "../constants/styles"
+import { LanguageType } from "../constants/types"
 import { PrimaryButton } from "./common/buttons"
 import { Header } from "./common/Header"
 import { Row } from "./common/layout"
@@ -77,22 +78,40 @@ const Footer = styled.div`
     }
 `
 
+const LanguageCopy = [
+    {
+        helpInfo: 'Please enter the code attached on the bin and your unique code (ABN). The weight of waste will be captured by the sensor and linked to your account automatically',
+        binCodeHint: 'enter the bin code',
+        ABNHint: 'enter your ABN',
+        submit: 'Submit',
+        updateMessage: 'You have successfully dumped and recyled 3.5 kg of waste!'
+    },
+    {
+        helpInfo: '请输入附在垃圾箱上的识别码以及您的ABN。垃圾桶上的检测芯片会自动记录您所扔垃圾的重量，并关联到您的账号',
+        binCodeHint: '输入垃圾箱的识别码',
+        ABNHint: '输入ABN',
+        submit: '提交',
+        updateMessage: '您已成功新回收3.5公斤废品！'
+    }
+]
+
 const CodeEntry = () => {
     const [showUpdatedMsg, setShowUpdatedMsg] = useState(false)
+    const [language, setLanguage] = useState(LanguageType.English)
     const onSubmitClicked = () => {
         setShowUpdatedMsg(true);
     }
     return (
     <>
-        <Header />
+        <Header setLanguage={setLanguage}/>
         <CodeEntryContainer>
             <EntryFormContainer>
                 <h2>re:yourwaste</h2>
-                <SpanContainer>Please enter the code attached on the bin and your unique code (ABN). The weight of waste will be captured by the sensor and linked to your account automatically</SpanContainer>
-                <InputBox placeholder="enter the bin code"></InputBox>
-                <InputBox placeholder="enter your ABN"></InputBox>
-                <SubmitButton onClick={onSubmitClicked}>Submit</SubmitButton>
-                {showUpdatedMsg && <UpdateMsg>You have successfully dumped and recyled 3.5 kg of waste!</UpdateMsg>}
+                <SpanContainer>{LanguageCopy[language].helpInfo}</SpanContainer>
+                <InputBox placeholder={LanguageCopy[language].binCodeHint}></InputBox>
+                <InputBox placeholder={LanguageCopy[language].ABNHint}></InputBox>
+                <SubmitButton onClick={onSubmitClicked}>{LanguageCopy[language].submit}</SubmitButton>
+                {showUpdatedMsg && <UpdateMsg>{LanguageCopy[language].updateMessage}</UpdateMsg>}
             </EntryFormContainer>
             <Footer>
                 <Row>
