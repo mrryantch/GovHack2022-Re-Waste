@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 import { RewasteHub } from "../../data/RewasteHub";
 
-const Map = () => {
+interface mapInterface {
+  setTitle: (value: string) => void;
+}
+const Map = ({ setTitle }: mapInterface) => {
   const [map, setMap] = useState<google.maps.Map>();
   const [adelaideLonLat] = useState([-34.928664106389625, 138.59996004847085]);
 
@@ -41,10 +44,14 @@ const Map = () => {
   useEffect(() => {
     if (map) {
       // eslint-disable-next-line array-callback-return
-      RewasteHub.map((hubs) => {
+      RewasteHub.map((hub) => {
         const marker = new google.maps.Marker({
-          position: { lat: parseFloat(hubs.lat), lng: parseFloat(hubs.lon) },
+          position: { lat: parseFloat(hub.lat), lng: parseFloat(hub.lon) },
           map,
+        });
+
+        marker.addListener("click", () => {
+          setTitle(hub.name);
         });
 
         marker.setMap(map);
