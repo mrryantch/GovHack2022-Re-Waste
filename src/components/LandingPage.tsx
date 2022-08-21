@@ -6,7 +6,6 @@ import Footer from "./common/Footer";
 import { Header } from "./common/Header";
 
 const Container = styled.div`
-  border: 1px solid red;
   position: absolute;
   top: 0;
   bottom: 0;
