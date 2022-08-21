@@ -61,24 +61,36 @@ const MapContainer = styled.div`
 `;
 
 const StationMap = () => {
-  const [title, setTitle] = useState("Click on Map or select a Precinct");
+  const [title, setTitle] = useState("Click on Map OR Select a Precinct");
+  const [dropDownValue, setDropDownValue] = useState(
+    "Adelaide West End Precinct"
+  );
+  const markers: google.maps.Marker[] = [];
+
   return (
     <StationMapContainer>
       <Title>
-        re:<TitleGreen>yourwaste&nbsp;</TitleGreen> in&nbsp; <DropDown />
+        re:<TitleGreen>yourwaste&nbsp;</TitleGreen> in&nbsp;{" "}
+        <DropDown
+          dropDownValue={dropDownValue}
+          setDropDownValue={setDropDownValue}
+        />
       </Title>
 
       <InnerContainer>
         <Box1>
           <Paragraph>{title}</Paragraph>
-
           <SubParagraph>Hours</SubParagraph>
           <SubParagraph>Location</SubParagraph>
           <SubParagraph>Service</SubParagraph>
         </Box1>
         <Box2>
           <MapContainer>
-            <Map setTitle={setTitle} />
+            <Map
+              markers={markers}
+              dropDownValue={dropDownValue}
+              setTitle={setTitle}
+            />
           </MapContainer>
         </Box2>
       </InnerContainer>

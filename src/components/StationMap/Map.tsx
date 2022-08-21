@@ -4,11 +4,14 @@ import { RewasteHub } from "../../data/RewasteHub";
 
 interface mapInterface {
   setTitle: (value: string) => void;
+  dropDownValue: string;
+  markers: google.maps.Marker[];
 }
-const Map = ({ setTitle }: mapInterface) => {
+const Map = ({ markers, dropDownValue, setTitle }: mapInterface) => {
   const [map, setMap] = useState<google.maps.Map>();
   const [adelaideLonLat] = useState([-34.928664106389625, 138.59996004847085]);
 
+  console.log(markers);
   useEffect(() => {
     if (process.env.REACT_APP_GOOGLE_MAP_API_KEYS) {
       const mapOptions = {
@@ -39,25 +42,44 @@ const Map = ({ setTitle }: mapInterface) => {
           console.log("map rendering error");
         });
     }
-  }, [adelaideLonLat]);
+  }, [adelaideLonLat, markers]);
 
   useEffect(() => {
     if (map) {
+      if (markers.length > 0) {
+        // clear markers here
+        for (let i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
+        }
+        markers.length = 0;
+      }
       // eslint-disable-next-line array-callback-return
       RewasteHub.map((hub) => {
-        const marker = new google.maps.Marker({
+        const originalMarker = {
           position: { lat: parseFloat(hub.lat), lng: parseFloat(hub.lon) },
           map,
-        });
+        };
+        const precinctMarker = {
+          position: { lat: parseFloat(hub.lat), lng: parseFloat(hub.lon) },
+          map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/micons/blue-dot.png",
+          },
+        };
+
+        const marker = new google.maps.Marker(
+          dropDownValue === hub.precinct ? precinctMarker : originalMarker
+        );
 
         marker.addListener("click", () => {
           setTitle(hub.name);
         });
 
         marker.setMap(map);
+        markers.push(marker);
       });
     }
-  }, [map]);
+  }, [dropDownValue, map, markers, setTitle]);
 
   return (
     <div

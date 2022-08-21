@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
-import Chevron from "../../assets/chevron.svg";
+
 const DropDownButton = styled.select`
   width: auto;
   height: 78px;
@@ -17,9 +16,19 @@ const DropDownButton = styled.select`
   padding-left: 20px;
 `;
 
-function DropDown() {
+interface DropDownInterface {
+  setDropDownValue: (value: string) => void;
+  dropDownValue: string;
+}
+
+function DropDown({ dropDownValue, setDropDownValue }: DropDownInterface) {
   return (
-    <DropDownButton>
+    <DropDownButton
+      value={dropDownValue}
+      onChange={(event) => {
+        setDropDownValue(event.target.value);
+      }}
+    >
       <option>Adelaide West End Precinct</option>
       <option>North Adelaide Precinct</option>
       <option>East End Precinct</option>
