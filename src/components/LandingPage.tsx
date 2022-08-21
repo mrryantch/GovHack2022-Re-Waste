@@ -16,7 +16,7 @@ const Container = styled.div`
   overflow-x: hidden;
 `;
 const InfoContainer = styled.div`
-  padding: 3rem 8rem;
+  padding: 3rem 7rem;
 `;
 const ImagesContainer = styled.div`
   display: flex;
@@ -24,10 +24,11 @@ const ImagesContainer = styled.div`
 `;
 
 const ParagraphText = styled.div`
-  width: 500px;
+  width: 100%;
   line-height: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 5rem;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 `;
 
 const LandingPage = () => {
@@ -44,11 +45,7 @@ const LandingPage = () => {
         <HeaderText>
           re:<GreenSpan>yourwaste</GreenSpan>
         </HeaderText>
-        <ParagraphText>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus est
-          adipiscing cras habitant. Metus nulla id eget nunc. Aliquet nunc
-          neque, egestas consectetur maecenas.{" "}
-        </ParagraphText>
+        <ParagraphText>Recent Activities</ParagraphText>
         <ImagesContainer>
           <img
             src="/noah-buscher-x8ZStukS2PM-unsplash.jpg"
