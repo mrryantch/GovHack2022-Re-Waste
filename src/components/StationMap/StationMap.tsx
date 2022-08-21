@@ -3,13 +3,12 @@ import DropDown from "./DropDown";
 import Map from "./Map";
 
 const StationMapContainer = styled.div`
-  background-color: white;
   height: 45rem;
   color: black;
   display: flex;
   flex-direction: column;
-  padding-left: 10.125rem;
-  padding-right: 10.125rem;
+  padding-left: 7rem;
+  padding-right: 7rem;
 `;
 
 const InnerContainer = styled.div`
@@ -18,6 +17,7 @@ const InnerContainer = styled.div`
 `;
 const Box1 = styled.div`
   width: 100%;
+  padding: 2rem;
 `;
 
 const Box2 = styled.div`
