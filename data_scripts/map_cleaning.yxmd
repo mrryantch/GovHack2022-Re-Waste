@@ -1,0 +1,795 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.3">
+  <Nodes>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\dbaterdene001\Downloads\clean_address.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>clean_address.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="254" source="File: C:\Users\dbaterdene001\Downloads\clean_address.csv" type="V_String" />
+            <Field name="Country" size="254" source="File: C:\Users\dbaterdene001\Downloads\clean_address.csv" type="V_String" />
+            <Field name="Region" size="254" source="File: C:\Users\dbaterdene001\Downloads\clean_address.csv" type="V_String" />
+            <Field name="StreetAddress" size="254" source="File: C:\Users\dbaterdene001\Downloads\clean_address.csv" type="V_String" />
+            <Field name="Suburb" size="254" source="File: C:\Users\dbaterdene001\Downloads\clean_address.csv" type="V_String" />
+            <Field name="PostCode" size="254" source="File: C:\Users\dbaterdene001\Downloads\clean_address.csv" type="V_String" />
+            <Field name="Land_Use_Description" size="254" source="File: C:\Users\dbaterdene001\Downloads\clean_address.csv" type="V_String" />
+            <Field name="Unnamed: 6" size="254" source="File: C:\Users\dbaterdene001\Downloads\clean_address.csv" type="V_String" />
+            <Field name="Address" size="254" source="File: C:\Users\dbaterdene001\Downloads\clean_address.csv" type="V_String" />
+            <Field name="clean_address" size="254" source="File: C:\Users\dbaterdene001\Downloads\clean_address.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="162" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>clean_address</Field>
+          <ErrorHandling>Last</ErrorHandling>
+          <RootName>clean_address</RootName>
+          <Delimeters value="-" />
+          <NumFields value="3" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="378" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[clean_address1]" field="clean_address2" size="254" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[clean_address2 = [clean_address1]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="234" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>IsNull([clean_address2])</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>IsNull</Operator>
+            <Field>clean_address2</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2022-08-20 21:32:20</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2022-08-20 21:32:20</StartDate>
+              <EndDate>2022-08-20 21:32:20</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IsNull([clean_address2])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="546" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="642" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="0">C:\Users\dbaterdene001\Desktop\clean_address_full_dataset+.csv</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <LineEndStyle>CRLF</LineEndStyle>
+            <Delimeter>,</Delimeter>
+            <ForceQuotes>False</ForceQuotes>
+            <HeaderRow>True</HeaderRow>
+            <CodePage>28591</CodePage>
+            <WriteBOM>True</WriteBOM>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>clean_address_full_dataset+.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="246" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>JournalNumber Date  AccountCode Debit Credit</Field>
+          <Delimeters value="\s" />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.FieldInfo.FieldInfo">
+        <Position x="150" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFieldInfo" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="150" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>RecordID</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="366" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>!IsEmpty([JournalNumber Date  AccountCode Debit Credit])</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>IsNotEmpty</Operator>
+            <Field>JournalNumber Date  AccountCode Debit Credit</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-02-26 19:42:00</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2021-02-26 19:42:00</StartDate>
+              <EndDate>2021-02-26 19:42:00</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!IsEmpty([JournalNumber Date  AccountCode Debit Credit])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Tile.Tile">
+        <Position x="426" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Method>UniqueValue</Method>
+          <UniqueValue>
+            <UniqueFields>
+              <Field field="RecordID" />
+            </UniqueFields>
+            <DontSort value="False" />
+          </UniqueValue>
+          <GroupFields orderChanged="False">
+            <Field name="RecordID" />
+          </GroupFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTile" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="510" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="RecordID" />
+          </GroupFields>
+          <HeaderField field="Tile_SequenceNum" />
+          <DataField field="JournalNumber Date  AccountCode Debit Credit" />
+          <Methods>
+            <Method method="Concat" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="CrossTab:Group:Concat:" type="Int32" />
+            <Field name="1" size="2048" source="CrossTab:Header:Tile_SequenceNum:1:Concat:" type="V_String" />
+            <Field name="2" size="2048" source="CrossTab:Header:Tile_SequenceNum:2:Concat:" type="V_String" />
+            <Field name="3" size="2048" source="CrossTab:Header:Tile_SequenceNum:3:Concat:" type="V_String" />
+            <Field name="4" size="2048" source="CrossTab:Header:Tile_SequenceNum:4:Concat:" type="V_String" />
+            <Field name="5" size="2048" source="CrossTab:Header:Tile_SequenceNum:5:Concat:" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="246" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Name</Field>
+          <Delimeters value="\s" />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="318" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>!IsEmpty([Name])</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>IsNotEmpty</Operator>
+            <Field>Name</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-02-26 19:43:51</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2021-02-26 19:43:51</StartDate>
+              <EndDate>2021-02-26 19:43:51</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!IsEmpty([Name])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
+        <Position x="690" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RenameMode>RightInputRows</RenameMode>
+          <Fields orderChanged="False">
+            <Field name="1" />
+            <Field name="2" />
+            <Field name="3" />
+            <Field name="4" />
+            <Field name="5" />
+            <Field name="*Unknown" />
+          </Fields>
+          <Expression />
+          <NamesFromRows>
+            <OnError>Warn</OnError>
+            <InputMode>Positional</InputMode>
+            <NewName>Name</NewName>
+          </NamesFromRows>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="JournalNumber" size="2048" source="CrossTab:Header:Tile_SequenceNum:1:Concat:" type="V_String" />
+            <Field name="Date" size="2048" source="CrossTab:Header:Tile_SequenceNum:2:Concat:" type="V_String" />
+            <Field name="AccountCode" size="2048" source="CrossTab:Header:Tile_SequenceNum:3:Concat:" type="V_String" />
+            <Field name="Debit" size="2048" source="CrossTab:Header:Tile_SequenceNum:4:Concat:" type="V_String" />
+            <Field name="Credit" size="2048" source="CrossTab:Header:Tile_SequenceNum:5:Concat:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="606" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="RecordID" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="78" y="30" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>1.xlsx
+Table=`clean$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="Double" />
+            <Field name="Country" size="255" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="V_String" />
+            <Field name="Region" size="255" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="V_String" />
+            <Field name="City" size="255" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="V_String" />
+            <Field name="StreetAddress" size="255" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="V_String" />
+            <Field name="Suburb" size="255" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="V_String" />
+            <Field name="PostCode" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="Double" />
+            <Field name="Land_Use_Description" size="255" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="V_String" />
+            <Field name="1" size="255" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="V_String" />
+            <Field name="2" size="255" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="V_String" />
+            <Field name="3" size="255" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="V_String" />
+            <Field name="4" size="255" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="V_String" />
+            <Field name="Address_correct" size="255" source="File: C:\Users\dbaterdene001\Desktop\1.xlsx|||`clean$`" type="V_String" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="78" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\dbaterdene001\Desktop\2.xlsx|||`clean2$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>2.xlsx
+Table=`clean2$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="File: C:\Users\dbaterdene001\Desktop\2.xlsx|||`clean2$`" type="Double" />
+            <Field name="Country" size="255" source="File: C:\Users\dbaterdene001\Desktop\2.xlsx|||`clean2$`" type="V_String" />
+            <Field name="Region" size="255" source="File: C:\Users\dbaterdene001\Desktop\2.xlsx|||`clean2$`" type="V_String" />
+            <Field name="City" size="255" source="File: C:\Users\dbaterdene001\Desktop\2.xlsx|||`clean2$`" type="V_String" />
+            <Field name="StreetAddress" size="255" source="File: C:\Users\dbaterdene001\Desktop\2.xlsx|||`clean2$`" type="V_String" />
+            <Field name="Suburb" size="255" source="File: C:\Users\dbaterdene001\Desktop\2.xlsx|||`clean2$`" type="V_String" />
+            <Field name="PostCode" source="File: C:\Users\dbaterdene001\Desktop\2.xlsx|||`clean2$`" type="Double" />
+            <Field name="Land_Use_Description" size="255" source="File: C:\Users\dbaterdene001\Desktop\2.xlsx|||`clean2$`" type="V_String" />
+            <Field name="1" size="255" source="File: C:\Users\dbaterdene001\Desktop\2.xlsx|||`clean2$`" type="V_String" />
+            <Field name="2" size="255" source="File: C:\Users\dbaterdene001\Desktop\2.xlsx|||`clean2$`" type="V_String" />
+            <Field name="3" size="255" source="File: C:\Users\dbaterdene001\Desktop\2.xlsx|||`clean2$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="294" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[1]+ &quot; &quot; + [2]+ &quot; &quot; + [3]+ &quot; &quot; + [4]+ &quot;, &quot; + [City] + &quot; &quot; + [PostCode]" field="Address_clean" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Address_clean = [1]+ " " + [2]+ " " + [3]+ " " + [4]+ ", " + [City] + " " + [Pos...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="270" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[1]+ &quot; &quot; + [2]+ &quot; &quot; + [3] + &quot; &quot; + [City] + &quot; &quot; + [PostCode]" field="Address_clean" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Address_clean = [1]+ " " + [2]+ " " + [3] + " " + [City] + " " + [PostCode]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="390" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="462" y="6" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>
+          </TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="510" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="0">C:\Users\dbaterdene001\Desktop\address_cleaned_2.csv</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <LineEndStyle>CRLF</LineEndStyle>
+            <Delimeter>,</Delimeter>
+            <ForceQuotes>False</ForceQuotes>
+            <HeaderRow>True</HeaderRow>
+            <CodePage>28591</CodePage>
+            <WriteBOM>True</WriteBOM>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>address_cleaned_2.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="198" y="30" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="PostCode" selected="True" type="V_String" size="19" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="162" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="PostCode" selected="True" type="V_String" size="19" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="12" Connection="False" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="True" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="True" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="True" />
+      <Destination ToolID="24" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="24" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>map_cleaning</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
