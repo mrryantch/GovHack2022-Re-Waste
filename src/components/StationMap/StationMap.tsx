@@ -24,7 +24,6 @@ const InnerContainer = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-
   }
 `;
 const Box1 = styled.div`
@@ -66,11 +65,25 @@ const TitleGreen = styled.p`
 `;
 
 const Paragraph = styled.p`
-  width: 36.688rem;
-  height: 13.75rem;
+  width: auto;
+  height: auto;
   font-size: 2rem;
   font-weight: 400;
   margin-top: 4rem;
+  margin-bottom: 0rem;
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-top: 0;
+    height: auto;
+  }
+`;
+
+const Paragraph2 = styled.p`
+  width: 36.688rem;
+  height: auto;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 1rem;
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
@@ -100,6 +113,9 @@ const MapContainer = styled.div`
 
 const StationMap = () => {
   const [title, setTitle] = useState("Click on Map OR Select a Precinct");
+  const [desc, setDesc] = useState("");
+  const [hours, setHours] = useState("");
+  const [contact, setContact] = useState("");
   const [dropDownValue, setDropDownValue] = useState(
     "Adelaide West End Precinct"
   );
@@ -108,7 +124,9 @@ const StationMap = () => {
   return (
     <StationMapContainer>
       <Title>
-        <div style={{display: 'flex'}}>re:<TitleGreen>yourwaste&nbsp;</TitleGreen> in&nbsp;{" "}</div>
+        <div style={{ display: "flex" }}>
+          re:<TitleGreen>yourwaste&nbsp;</TitleGreen> in&nbsp;{" "}
+        </div>
         <DropDown
           dropDownValue={dropDownValue}
           setDropDownValue={setDropDownValue}
@@ -118,9 +136,13 @@ const StationMap = () => {
       <InnerContainer>
         <Box1>
           <Paragraph>{title}</Paragraph>
-          <SubParagraph>Hours</SubParagraph>
-          <SubParagraph>Location</SubParagraph>
-          <SubParagraph>Service</SubParagraph>
+          <Paragraph2>{desc}</Paragraph2>
+          {hours !== "" ? <SubParagraph>Hours: {hours}</SubParagraph> : <></>}
+          {contact !== "" ? (
+            <SubParagraph>Contact: {contact}</SubParagraph>
+          ) : (
+            <></>
+          )}
         </Box1>
         <Box2>
           <MapContainer>
@@ -128,6 +150,9 @@ const StationMap = () => {
               markers={markers}
               dropDownValue={dropDownValue}
               setTitle={setTitle}
+              setDesc={setDesc}
+              setHours={setHours}
+              setContact={setContact}
             />
           </MapContainer>
         </Box2>
