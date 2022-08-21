@@ -4,10 +4,21 @@ import { RewasteHub } from "../../data/RewasteHub";
 
 interface mapInterface {
   setTitle: (value: string) => void;
+  setDesc: (value: string) => void;
+  setHours: (value: string) => void;
+  setContact: (value: string) => void;
+
   dropDownValue: string;
   markers: google.maps.Marker[];
 }
-const Map = ({ markers, dropDownValue, setTitle }: mapInterface) => {
+const Map = ({
+  markers,
+  dropDownValue,
+  setTitle,
+  setDesc,
+  setHours,
+  setContact,
+}: mapInterface) => {
   const [map, setMap] = useState<google.maps.Map>();
   const [adelaideLonLat] = useState([-34.928664106389625, 138.59996004847085]);
 
@@ -72,6 +83,9 @@ const Map = ({ markers, dropDownValue, setTitle }: mapInterface) => {
 
         marker.addListener("click", () => {
           setTitle(hub.name);
+          setDesc(hub.desc);
+          setHours(hub.hours);
+          setContact(hub.contact);
         });
 
         marker.setMap(map);
