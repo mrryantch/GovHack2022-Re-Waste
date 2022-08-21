@@ -27,7 +27,7 @@ export const Header = () => {
             <LinkButton href="#">Link1</LinkButton>
             <LinkButton href="#">Link2</LinkButton>
             <LinkButton href="#">Link3</LinkButton>
-            <LinkButton href="#">Link4</LinkButton>
+            <LinkButton href="/">HomePage</LinkButton>
             <PrimaryButton onClick={onDashboardClick}>Dashboard</PrimaryButton>
         </div>
     </NavContainer>
