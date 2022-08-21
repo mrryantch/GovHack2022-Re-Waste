@@ -23,7 +23,7 @@ const InfoContainer = styled.div`
 
   @media (max-width: 768px) {
     padding: 2rem;
-    }
+  }
 `;
 
 const ImagesContainer = styled.div`
@@ -40,10 +40,10 @@ const ImagesContainer = styled.div`
     width: 500px;
 
     @media (max-width: 768px) {
-        height: 200px;
-        width: 300px;
-        margin-bottom: 1rem;
-     }
+      height: 200px;
+      width: 300px;
+      margin-bottom: 1rem;
+    }
   }
 `;
 
@@ -74,6 +74,11 @@ const HeaderImageText = styled.p`
   width: auto;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    top: 10%;
+  }
 `;
 
 const Slider = styled.div`
@@ -90,10 +95,17 @@ const Slider = styled.div`
   flex-direction: row;
   justify-content: center;
   border-radius: 6px;
+
+  @media (max-width: 768px) {
+    width: 300px;
+    height: auto;
+    flex-direction: column;
+    top: 65%;
+  }
 `;
 const LandingPage = () => {
   const [businessRole, setBusinessRoleValue] = useState("");
-  const [openSlider, setOpenSlider] = useState(false);
+  const [openSlider, setOpenSlider] = useState(true);
   useEffect(() => {
     if (businessRole !== "") {
       setOpenSlider(!openSlider);
@@ -136,18 +148,9 @@ const LandingPage = () => {
         </HeaderText>
         <ParagraphText>Recent Activities</ParagraphText>
         <ImagesContainer>
-          <img
-            src="/Images/recycle.jpg"
-            alt="landingImg1"
-          ></img>
-          <img
-            src="/Images/farming.jpg"
-            alt="landingImg2"
-          ></img>
-          <img
-            src="/Images/event.jpg"
-            alt="landingImg3"
-          ></img>
+          <img src="/Images/recycle.jpg" alt="landingImg1"></img>
+          <img src="/Images/farming.jpg" alt="landingImg2"></img>
+          <img src="/Images/event.jpg" alt="landingImg3"></img>
         </ImagesContainer>
       </InfoContainer>
       <StationMap />
