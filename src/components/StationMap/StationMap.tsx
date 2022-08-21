@@ -87,8 +87,9 @@ const Paragraph2 = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
-    margin-top: 0;
+    margin-top: 1rem;
     height: auto;
+    width: auto;
   }
 `;
 
