@@ -39,7 +39,7 @@ const Map = ({ markers, dropDownValue, setTitle }: mapInterface) => {
           setMap(m);
         })
         .catch((e) => {
-          console.log("map rendering error");
+          console.log("map rendering error1");
         });
     }
   }, [adelaideLonLat, markers]);
